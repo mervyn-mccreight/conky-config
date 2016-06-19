@@ -31,8 +31,8 @@ conky.config = {
     double_buffer = true,
     
     -- positioning
-    alignment = 'top_left',
-    gap_x = 5,
+    alignment = 'top_right',
+    gap_x = 10,
     gap_y = 5,
     
     -- window settings
