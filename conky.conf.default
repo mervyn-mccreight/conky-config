@@ -37,10 +37,11 @@ conky.config = {
     
     -- window settings
     own_window = true,
-    own_window_class = 'Conky',
-    own_window_argb_visual = yes,
+    own_window_type = desktop,
+    own_window_argb_visual = true,
+    -- 0 = transparent, 255 = solid
     own_window_argb_value = 0,
-    own_window_hints= 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
     
     -- layout settings
     border_width = 0,
@@ -57,6 +58,7 @@ conky.config = {
     
     -- font
     use_xft = true,
+    xftalpha = 0.6,
     font = 'DejaVu Sans Mono:size=10',
     uppercase = false,
     use_spacer = 'none',
