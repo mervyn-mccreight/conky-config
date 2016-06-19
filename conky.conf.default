@@ -38,7 +38,9 @@ conky.config = {
     -- window settings
     own_window = true,
     own_window_class = 'Conky',
-    own_window_type = 'desktop',
+    own_window_argb_visual = yes,
+    own_window_argb_value = 0,
+    own_window_hints= 'undecorated,below,sticky,skip_taskbar,skip_pager',
     
     -- layout settings
     border_width = 0,
@@ -52,7 +54,6 @@ conky.config = {
     draw_shades = false,
     show_graph_scale = false,
     show_graph_range = false,
-    
     
     -- font
     use_xft = true,
@@ -68,14 +69,15 @@ conky.config = {
     extra_newline = false,
     stippled_borders = 0,
     
-    
     minimum_height = 5,
-	minimum_width = 5
+	minimum_width = 5,
+	
+	template0 = '${font Open Sans:Bold:size=10}${color dodgerblue3}\\1 ${hr 2}$color${font}${voffset 1}'
 }
 
 conky.text = [[
-${scroll 16 $nodename - $sysname $kernel on $machine | }
-$hr
+
+${template0 SYSTEM}
 ${color grey}Uptime:$color $uptime
 ${color grey}Frequency (in MHz):$color $freq
 ${color grey}Frequency (in GHz):$color $freq_g
@@ -83,12 +85,12 @@ ${color grey}RAM Usage:$color $mem/$memmax - $memperc% ${membar 4}
 ${color grey}Swap Usage:$color $swap/$swapmax - $swapperc% ${swapbar 4}
 ${color grey}CPU Usage:$color $cpu% ${cpubar 4}
 ${color grey}Processes:$color $processes  ${color grey}Running:$color $running_processes
-$hr
+${template0 I/O}
 ${color grey}File systems:
  / $color${fs_used /}/${fs_size /} ${fs_bar 6 /}
 ${color grey}Networking:
 Up:$color ${upspeed eth0} ${color grey} - Down:$color ${downspeed eth0}
-$hr
+${template0 Activity}
 ${color grey}Name              PID   CPU%   MEM%
 ${color lightgrey} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
 ${color lightgrey} ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
