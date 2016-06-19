@@ -75,7 +75,7 @@ conky.config = {
 	minimum_width = 5,
 	
 	template0 = '${font Open Sans:Bold:size=10}${color dodgerblue3}\\1 ${hr 2}$color${font}${voffset 1}',
-	template1 = '${color grey}\\1: $color ${cpu \\2}% ${cpubar \\2}' 
+	template1 = '${color grey}\\1 $color ${cpu \\2}% ${cpubar \\2}' 
 }
 
 conky.text = [[
@@ -85,12 +85,14 @@ ${color grey}Uptime $alignr $color $uptime
 ${color grey}Temperature $alignr $color ${acpitemp}°C
 
 ${template0 CPU}
-${template1 Total cpu0}
+${template1 Average\ Usage cpu0}
 
-${template1 core1 cpu1}
-${template1 core2 cpu2}
-${template1 core3 cpu3}
-${template1 core4 cpu4}
+${template1 Core\ 1 cpu1}
+${template1 Core\ 2 cpu2}
+${template1 Core\ 3 cpu3}
+${template1 Core\ 4 cpu4}
+
+${template0 RAM}
 ${color grey}RAM Usage:$color $mem/$memmax - $memperc% ${membar 4}
 ${color grey}Swap Usage:$color $swap/$swapmax - $swapperc% ${swapbar 4}
 ${color grey}CPU Usage:$color $cpu% ${cpubar 4}
