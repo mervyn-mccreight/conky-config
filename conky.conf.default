@@ -75,7 +75,8 @@ conky.config = {
 	minimum_width = 5,
 	
 	template0 = '${font Open Sans:Bold:size=10}${color dodgerblue3}\\1 ${hr 2}$color${font}${voffset 1}',
-	template1 = '${color grey}\\1 $color ${cpu \\2}% ${cpubar \\2}' 
+	template1 = '${color grey}\\1 $color ${cpu \\2}% ${cpubar \\2}',
+	template3 = '${if_up \\1}${template0 \\2}\ndown $alignr ${downspeed \\1}/s\nup $alignr ${upspeed \\1}/s\ntotal down$alignr${totaldown \\1}\ntotal up $alignr${totalup \\1}$endif'
 }
 
 conky.text = [[
@@ -103,8 +104,7 @@ ${template0 Disk}
 ${color grey}File systems:
  / $color${fs_used /}/${fs_size /} ${fs_bar 6 /}
  
-${template0 Network}
-Up:$color ${upspeed eth0} ${color grey} - Down:$color ${downspeed eth0}
+${template3 eth0 ETH0}${template3 wlp3s0 WLAN}
 
 ${template0 Activity}
 ${color grey}Processes:$color $processes  ${color grey}Running:$color $running_processes
